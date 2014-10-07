@@ -55,19 +55,20 @@ function guessLetter(letter) {
             alert(guess.join());
         }    
 
-        if (guess[i] === "_") {
-            nextGuess = true;
-        }
-
         if (letter !== word[i]) {
             alert("Try again.");
         }
 
-    }            
+        if (guess[i] === "_") {
+            nextGuess = true;
+            continue;
+            if (nextGuess = false) {
+            alert("You have guessed all the letters!");
+            break;
+            }   
+        }
 
-    if (nextGuess = false) {
-        alert("You have guessed all the letters!");
-    }   
+    }            
 }
 
 guessLetter()

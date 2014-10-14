@@ -1,74 +1,32 @@
-// The WordGuesser w/out using the prompt function.
+var wordLetters = ["N", "Y", "C", "D", "A"];
+var guessedLetters = ["_ ", "_ ", "_ ", "_ ", "_ "];
 
-var word = ["N", "Y", "C", "D", "A"]
-var guess = ["_", "_", "_", "_", "_"]
-
-function guessLetter(letter) {
-    var correctGuess = false;
-    var nextGuess = false;
-
-    for (var i = 0; i < word.length; i++) {
-
-        if (letter === word[i]) {
-            guess[i] = letter;
-            correctGuess = true;
-            alert("You correctly guessed a letter.");
-            alert(guess.join());
-        }    
-
-        if (guess[i] === "_") {
-            nextGuess = true;
+function guessLetter(userLetter) 
+{
+    while (guessedLetters.indexOf("_ ") !==-1) 
+    {
+        userLetter = prompt("Please enter a letter in the alphabet", "A");
+        
+        for (var i = 0; i < wordLetters.length; i++) 
+        {
+            
+            var letterToCheck = wordLetters[i];
+    
+            if (letterToCheck === userLetter) 
+            {
+                alert("You correctly guessed a letter!");
+                guessedLetters[i] = letterToCheck;
+                $('#letters').html(guessedLetters);
+            }
+            
         }
+        
+    }
+    
+    if (guessedLetters.indexOf("_ ") === -1)
+    {
+        alert("You win!");
     }    
+}    
 
-    if (nextGuess = false) {
-        alert("You have guessed all the letters!!");
-    }   
-
-    if (letter !== word[i]) {
-        alert("Try again.");
-    }         
-}
-
-guessLetter("N");
-guessLetter("Y");
-guessLetter("C");
-guessLetter("D");
-guessLetter("X");
-guessLetter("Y");
-guessLetter("A");
-
-// The WordGuesser using the prompt function. Currently facing some issues with re-starting the loop. 
-
-function guessLetter(letter) {
-    var correctGuess = false;
-    var nextGuess = false;
-
-    for (var i = 0; i < word.length; i++) {
-
-        letter = prompt("Please enter a capitalized letter in the alphabet", "A")
-
-        if (letter === word[i]) {
-            guess[i] = letter;
-            correctGuess = true;
-            alert("You correctly guessed a letter!");
-            alert(guess.join());
-        }    
-
-        if (letter !== word[i]) {
-            alert("Try again.");
-        }
-
-        if (guess[i] === "_") {
-            nextGuess = true;
-            continue;
-            if (nextGuess = false) {
-            alert("You have guessed all the letters!");
-            break;
-            }   
-        }
-
-    }            
-}
-
-guessLetter()
+guessLetter();

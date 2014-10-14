@@ -16,9 +16,7 @@ function guessLetter(userLetter)
     
             if (letterToCheck.toLowerCase() === userLetter.toLowerCase()) 
             {
-                // alert("You correctly guessed a letter!");
                 guessedLetters[i] = letterToCheck.toLowerCase();
-                // $('#letters').html(guessedLetters);
                 letterFound = true;
             }
             
